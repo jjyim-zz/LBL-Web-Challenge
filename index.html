@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DST Programming Challenge</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+<!-- Here is the set of JS files that I have used for this webpage. jQuery.js was used to transfer the data from the input-data.js file into this page, chart.js is used to create the histogram, and sorttable.js is the plugin that I used to make the table sortable. table-builder.js holds a small bit of code that simply adds the HTML structure when appending the information coming from input-data.js --> 
+	<script src="js/jQuery.js"></script>
+    <script src="js/table-builder.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/sorttable.js"></script>
+</head>
+<body>
+
+<!-- This is the Header to title the page and has a different link to the DST logo than the one provided because I originally wanted to make it on a different background, but a JPG only has a white background. I converted it to a PNG file with a clear background so that I could play with the background, which I didn't end up doing in the end. -->
+	<div class="container">
+		<div class="row header">
+			<div class="col-md-2 header-logo">
+				<img src="https://farm8.staticflickr.com/7335/16563886225_650236d9d5_o.png" class="img-responsive">		
+			</div>
+				
+			<div class="col-md-10 header-title">
+				<h1>DST Programming Challenge</h1> 
+			</div>
+		</div>
+	</div>	
+
+<!-- This is the navigation bar. Simple. No-nonsense navbar. --> 			
+	<nav class="row navbar">
+		<div id="navbar" class="col-md-12">
+			<ul class="nav navbar-nav">
+				<li><a href="#">About</a></li>
+				<li><a href="#">News</a></li>
+				<li class="active"><a href="#">Results</a></li>
+				<li><a href="#">About Us</a></li>
+			</ul>
+		</div>
+	</nav>
+
+<!-- From here on, there is the content to this page. This is where both of the Tables are located as well as the histogram. Most, if not all, of the information is being sent from the input-data.js file. That's why this is so bare bones and none of the information is actually stored here. Please see the input-data.js file to see how the information is transferred to this page. --> 
+	<div class="container">
+
+		<div class="row content">
+			<div class="col-md-6 data-input">
+				<div class="nodes">
+					<h2>Nodes</h2>
+					<table class="node-table sortable table-striped">
+						<tr>
+							<th>Node</th>
+							<th>Initial Capacity</th>
+							<th># of Files</th>
+							<th># of Bytes</th>
+							<th>Percent Full</th>
+						</tr>
+					</table>
+				</div>
+				<br>
+
+				<div class="distribution">
+					<h2>Distribution</h2>
+					<table class="dist-table sortable table-striped">
+						<tr>
+							<th>File Name</th>
+							<th>Node</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+<!-- Used the chart.js framework to add the histogram to this page. The canvas tag allows you to create the space for the histogram to go on and the Javascript code in the input-data.js file fills it in with the necessary data. --> 
+			<div class="col-md-6 balance-chart">
+				<h2>Balance</h2>
+				<canvas id="balanceChart" width="500px" height="400px"></canvas>
+			</div>
+		</div>
+
+	</div>
+
+	<footer class="footer">
+		© Lawrence Berkeley National Laboratory, 2014
+	</footer>
+
+<!-- This JS file holds all of the information that will be transferred to the page. So this HTML document simply holds the basic structure for the page and the information regarding the nodes can all be found in this JS file. --> 
+	<script src="js/input-data.js"></script>
+
+</body>
+</html>
